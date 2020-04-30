@@ -1,3 +1,4 @@
+var gameWidth = 400;
 var counter = 2;
 function stopSliding(slider1, slider2, sliderB4){
     var slider1 = document.getElementById(slider1);
@@ -45,5 +46,7 @@ function stopSliding(slider1, slider2, sliderB4){
     }
     slider2.style.width = theWidth;
     slider2.style.visibility = "visible";
+    gameWidth = gameWidth + absDifference;
+    document.documentElement.style.setProperty('--width', gameWidth + "px");
     counter++;
 }

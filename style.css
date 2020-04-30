@@ -1,28 +1,36 @@
 *{
     padding: 0;
     margin: 0;
+    outline: none;
 }
 .game{
     width: 500px;
     height: 500px;
+    margin:auto;
     border: 1px solid black;
 }
-#btn{
+button{
     font-size: 2rem;
-    width: 100px;
+    padding: 0.5rem 2rem;
     border: 3px solid black;
-    background-color: lightgreen;
-    margin-top: 1rem;
-    margin-left: 200px;
+    border-radius: 0.3rem;
+    margin: 1rem auto;
+    display: block;
 }
-#btn:hover{
+#btn{
+    background-color: lightgreen;
+}
+#btn:hover, #restart:hover{
     background-color: yellow; 
 }
-#btn:active{
+#btn:active, #restart:active{
     background-color: red;
 }
+#restart{
+    background-color: orange;
+    display: none;
+}
 .slider{
-/*    display: none;*/
     visibility: hidden;
     background-color: red;
     height: 20px;
@@ -30,86 +38,8 @@
     position: relative;
 }
 .slider1{
-/*    display: block;*/
     visibility: visible;
-/*    top: 480px !important;*/
 }
-/*
-.slider2{
-    top: 460px;
-}
-.slider3{
-    top: 440px;
-}
-.slider4{
-    top: 420px;
-}
-.slider5{
-    top: 400px;
-}
-.slider6{
-    top: 380px;
-}
-.slider7{
-    top: 360px;
-}
-*/
-/*
-.slider8{
-    top: 340px;
-}
-.slider9{
-    top: 320px;
-}
-.slider10{
-    top: 300px;
-}
-.slider11{
-    top: 280px;
-}
-.slider12{
-    top: 260px;
-}
-.slider13{
-    top: 240px;
-}
-.slider14{
-    top: 220px;
-}
-.slider15{
-    top: 200px;
-}
-.slider16{
-    top: 180px;
-}
-.slider17{
-    top: 160px;
-}
-.slider18{
-    top: 140px;
-}
-.slider19{
-    top: 120px;
-}
-.slider20{
-    top: 100px;
-}
-.slider21{
-    top: 80px;
-}
-.slider22{
-    top: 60px;
-}
-.slider23{
-    top: 40px;
-}
-.slider24{
-    top: 20px;
-}
-.slider25{
-    top: 0px;
-}
-*/
 .animate{
     animation: side 4s infinite linear;
 }

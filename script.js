@@ -13,6 +13,7 @@ function stopSliding(slider1, slider2, sliderB4){
     var difference = left1 - left2;
     var absDifference = Math.abs(left1 - left2);
     if(difference>width||difference<-width){
+        document.getElementById("restart").style.display = "block";
         alert("Fail");
         Location.reload();
     }
@@ -44,6 +45,5 @@ function stopSliding(slider1, slider2, sliderB4){
     }
     slider2.style.width = theWidth;
     slider2.style.visibility = "visible";
-    
     counter++;
 }

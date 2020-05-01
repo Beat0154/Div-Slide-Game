@@ -15,7 +15,10 @@ function stopSliding(slider1, slider2, sliderB4){
     var absDifference = Math.abs(left1 - left2);
     if(difference>width||difference<-width){
         document.getElementById("restart").style.display = "block";
-        alert("Fail");
+        var scoreStr = "Score:";
+        var scoreMinusOne = counter-2;
+        var score = scoreStr.concat(scoreMinusOne);
+        alert(score);
         Location.reload();
     }
     var offset = width - absDifference;

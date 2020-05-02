@@ -1,6 +1,7 @@
 var gameWidth = 400;
 var counter = 2;
 function stopSliding(slider1, slider2, sliderB4){
+    var btn = document.getElementById("btn");
     var slider1 = document.getElementById(slider1);
     var slider2 = document.getElementById(slider2);
     var sliderB4 = document.getElementById(sliderB4);
@@ -18,6 +19,7 @@ function stopSliding(slider1, slider2, sliderB4){
         var scoreStr = "Score:";
         var scoreMinusOne = counter-2;
         var score = scoreStr.concat(scoreMinusOne);
+        btn.setAttribute("onclick", "");
         alert(score);
         Location.reload();
     }
@@ -26,7 +28,6 @@ function stopSliding(slider1, slider2, sliderB4){
     var offstring = offset.toString();
     var theWidth = offstring.concat(px);
     
-    var btn = document.getElementById("btn");
     var str1 = "stopSliding('slider";
     var str2 = counter;
     var str3 = "','slider";

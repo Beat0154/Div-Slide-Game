@@ -12,6 +12,27 @@
     margin:auto;
     border: 1px solid black;
 }
+
+.slider{
+    visibility: hidden;
+    background-color: red;
+    height: 20px;
+    width: 100px;
+    position: relative;
+}
+#slider1{
+    visibility: visible;
+}
+.animate{
+    animation: side 4s infinite linear;
+}
+@keyframes side{
+    0%{left:0px}
+    50%{left:var(--width)}
+    100%{left:0px}
+}
+
+
 button{
     font-size: 2rem;
     padding: 0.5rem 2rem;
@@ -32,22 +53,4 @@ button{
 #restart{
     background-color: orange;
     display: none;
-}
-.slider{
-    visibility: hidden;
-    background-color: red;
-    height: 20px;
-    width: 100px;
-    position: relative;
-}
-.slider1{
-    visibility: visible;
-}
-.animate{
-    animation: side 4s infinite linear;
-}
-@keyframes side{
-    0%{left:0px}
-    50%{left:var(--width)}
-    100%{left:0px}
 }

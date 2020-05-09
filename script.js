@@ -1,56 +1,38 @@
 var gameWidth = 400;
 var counter = 2;
-function stopSliding(slider1, slider2, sliderB4){
-    var btn = document.getElementById("btn");
-    var slider1 = document.getElementById(slider1);
-    var slider2 = document.getElementById(slider2);
+var btn = document.getElementById("btn");
+function stopSliding(sliderMoving, sliderAbove, sliderB4){
+    var sliderMoving = document.getElementById(sliderMoving);
+    var sliderAbove = document.getElementById(sliderAbove);
     var sliderB4 = document.getElementById(sliderB4);
-    var left = window.getComputedStyle(slider1).getPropertyValue("left");
-    slider1.classList.remove("animate");
-    slider1.style.left = left;
-    
-    var width = parseFloat(window.getComputedStyle(slider1).getPropertyValue("width"));
-    var left1 = parseFloat(window.getComputedStyle(slider1).getPropertyValue("left"));
-    var left2 = parseFloat(window.getComputedStyle(sliderB4).getPropertyValue("left"));
-    var difference = left1 - left2;
-    var absDifference = Math.abs(left1 - left2);
+    var left = window.getComputedStyle(sliderMoving).getPropertyValue("left");
+    sliderMoving.classList.remove("animate");
+    sliderMoving.style.left = left;
+    var width = parseFloat(window.getComputedStyle(sliderMoving).getPropertyValue("width"));
+    left = parseFloat(left);
+    var leftB4 = parseFloat(window.getComputedStyle(sliderB4).getPropertyValue("left"));
+    var difference = left - leftB4;
+    var absDifference = Math.abs(difference);
     if(difference>width||difference<-width){
         document.getElementById("restart").style.display = "block";
-        var scoreStr = "Score:";
-        var scoreMinusOne = counter-2;
-        var score = scoreStr.concat(scoreMinusOne);
+        var score = "Score: ".concat(counter-2);
         btn.setAttribute("onclick", "");
         alert(score);
         Location.reload();
     }
-    var offset = width - absDifference;
-    var px = "px";
-    var offstring = offset.toString();
-    var theWidth = offstring.concat(px);
-    
-    var str1 = "stopSliding('slider";
-    var str2 = counter;
-    var str3 = "','slider";
-    var str4 = counter+1;
-    var str5 = "','slider";
-    var str6 = counter-1;
-    var str7 = "')";
-    var str8 = str1.concat(str2, str3, str4, str5, str6, str7);
-    btn.setAttribute("onclick",str8);
     if(difference>0){
-        var newleft = left1 + absDifference;
+        left = left + absDifference;
     }else{
-        var newleft = left1 - difference;
+        left = left - difference;
+        sliderMoving.style.left = left.toString().concat("px");
     }
-    var theleft = newleft.toString();
-    var newnewleft = theleft.concat(px);
-    slider1.style.width = theWidth; 
-    if(difference<0){
-        slider1.style.left = newnewleft;
-    }
-    slider2.style.width = theWidth;
-    slider2.style.visibility = "visible";
+    var offset = (width - absDifference).toString().concat("px");
+    sliderMoving.style.width = offset; 
+    sliderAbove.style.width = offset;
+    sliderAbove.style.visibility = "visible";
     gameWidth = gameWidth + absDifference;
     document.documentElement.style.setProperty('--width', gameWidth + "px");
+    var onclick = "stopSliding('slider".concat(counter, "','slider", counter+1, "','slider", counter-1, "')");
+    btn.setAttribute("onclick",onclick);
     counter++;
 }

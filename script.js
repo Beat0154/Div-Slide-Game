@@ -1,6 +1,15 @@
-var gameWidth = 400;
+if(window.innerWidth < 500){
+    var boardWidth = window.innerWidth-2;
+    var gameWidth = window.innerWidth-102;
+    document.documentElement.style.setProperty('--boardWidth', boardWidth + "px");
+    document.documentElement.style.setProperty('--width', gameWidth + "px");
+}else{
+    var boardWidth = 500;
+    var gameWidth = 400;
+}
 var counter = 2;
 var btn = document.getElementById("btn");
+
 function stopSliding(sliderMoving, sliderAbove, sliderB4){
     var sliderMoving = document.getElementById(sliderMoving);
     var sliderAbove = document.getElementById(sliderAbove);

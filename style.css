@@ -1,5 +1,6 @@
 :root{
     --width: 400px;
+    --boardWidth: 500px;
 }
 *{
     padding: 0;
@@ -7,7 +8,7 @@
     outline: none;
 }
 .game{
-    width: 500px;
+    width: var(--boardWidth);
     height: 500px;
     margin:auto;
     border: 1px solid black;
